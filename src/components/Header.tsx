@@ -78,7 +78,7 @@ export default function Header({
 
       {/* Mobile Nav */}
       <nav
-        className={`lg:hidden bg-black w-full border-t-2 border-red-600 transition-all duration-500 ease-in-out overflow-hidden ${
+        className={`lg:hidden bg-gray-900 w-full border-t-2 border-red-600 transition-all duration-500 ease-in-out overflow-hidden ${
           mobileMenuOpen
             ? "opacity-100 max-h-[500px] translate-y-0"
             : "opacity-0 max-h-0 -translate-y-2 pointer-events-none"
