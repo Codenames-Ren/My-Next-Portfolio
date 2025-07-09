@@ -78,6 +78,25 @@
   --sidebar-ring: oklch(0.707 0.022 261.325);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ed2323;
+  border-radius: 10px;
+  border: 2px solid #000;
+}
+
 .dark {
   --background: oklch(0.13 0.028 261.692);
   --foreground: oklch(0.985 0.002 247.839);
