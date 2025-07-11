@@ -50,12 +50,16 @@ export default function Header({
 
         {/* Mobile menu button */}
         <Button
-          variant="ghost"
-          size="icon"
-          className="lg:hidden text-red-600 text-2xl"
+          variant="link"
+          size="default"
+          className="lg:hidden text-red-600 w-12 "
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <FaTimes /> : <FaBars />}
+          {mobileMenuOpen ? (
+            <FaTimes className="text-3xl" />
+          ) : (
+            <FaBars className="text-3xl" />
+          )}
         </Button>
 
         {/* Desktop Nav */}
@@ -64,7 +68,7 @@ export default function Header({
             <Link
               key={item.href}
               href={item.href}
-              className={`text-white hover:text-red-600 transition-colors duration-300 border-b-2 border-transparent hover:border-red-600 pb-1 ${
+              className={`text-white hover:text-red-600 transition-colors duration-300 border-b-2 border-transparent hover:border-red-600 pb-1 text-lg ${
                 activeSection === item.href.slice(1)
                   ? "text-red-600 border-red-600"
                   : ""
