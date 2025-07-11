@@ -90,13 +90,13 @@ export default function Hero() {
 
           {/* Profile Picture - Mobile */}
           <div className="flex justify-center lg:hidden">
-            <div className="relative">
+            <div className="relative group transition-transform duration-300 ease-in-out hover:scale-105">
               <Image
                 src="/image/me2.jpg"
                 alt="me"
                 width={192}
                 height={192}
-                className="w-48 h-48 rounded-full shadow-2xl border-4 border-red-600/30 hove:scale-105 transition"
+                className="w-48 h-48 rounded-full shadow-2xl border-4 border-red-600/30 group-hover:scale-110 transition-transform duration-300 ease-in-out"
               />
               <div className="absolute inset-0 rounded-full bg-red-600/10 animate-pulse"></div>
             </div>
@@ -136,13 +136,13 @@ export default function Hero() {
 
         {/* Profile Picture - Desktop */}
         <div className="hidden lg:flex justify-center">
-          <div className="relative">
+          <div className="relative group transition-transform duration-300 ease-in-out hover:scale-105">
             <Image
               src="/image/me2.jpg"
               alt="Me"
               width={384}
               height={384}
-              className="w-96 h-96 rounded-full shadow-2xl border-4 border-red-600/30 hover:scale-105 transition"
+              className="w-96 h-96 rounded-full shadow-2xl border-4 border-red-600/30 group-hover:scale-110 transition-transform duration-300 ease-in-out"
             />
             <div className="absolute inset-0 rounded-full bg-red-600/10 animate-pulse"></div>
           </div>
