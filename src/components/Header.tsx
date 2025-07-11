@@ -4,6 +4,10 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { FaBars, FaTimes } from "react-icons/fa";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 interface HeaderProps {
   activeSection: string;
@@ -17,6 +21,7 @@ export default function Header({
   setMobileMenuOpen,
 }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
 
   useEffect(() => {
     const handlerScroll = () => {
@@ -26,6 +31,25 @@ export default function Header({
     window.addEventListener("scroll", handlerScroll);
     return () => window.removeEventListener("scroll", handlerScroll);
   }, []);
+
+  useEffect(() => {
+    if (clickCount === 5) {
+      MySwal.fire({
+        title: "🎉 Kamu menemukan Easter Egg!",
+        text: "Terima kasih sudah mengunjungi web ini~",
+        icon: "success",
+        background: "#101828",
+        color: "#e7000b",
+        confirmButtonColor: "#e7000b",
+        confirmButtonText: "Keren 👍",
+      });
+      setClickCount(0); //Counter Reset
+    }
+  }, [clickCount]);
+
+  const handleLogoClick = () => {
+    setClickCount((prev) => prev + 1);
+  };
 
   const navItems = [
     { href: "#home", label: "Home" },
@@ -41,12 +65,13 @@ export default function Header({
       } backdrop-blur-md`}
     >
       <div className="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
-        <Link
-          href="#"
-          className="text-red-600 text-2xl lg:text-3xl font-bold hover:scale-110 transition-transform duration-300"
+        {/* Easter Egg */}
+        <span
+          onClick={handleLogoClick}
+          className="cursor-pointer text-red-600 text-2xl lg:text-3xl font-bold hover:scale-110 transition-transfor duration-300"
         >
           My Portfolio
-        </Link>
+        </span>
 
         {/* Mobile menu button */}
         <Button
