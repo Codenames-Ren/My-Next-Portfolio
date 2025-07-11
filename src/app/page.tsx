@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import TechStack from "@/components/TechStack";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
@@ -39,6 +40,7 @@ export default function Home() {
         setMobileMenuOpen={setMobileMenuOpen}
       />
       <Hero />
+      <TechStack />
     </>
   );
 }
