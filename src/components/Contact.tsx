@@ -2,35 +2,7 @@
 
 import { Card, CardContent } from "./ui/card";
 import Link from "next/link";
-import {
-  FaFacebookF,
-  FaWhatsapp,
-  FaEnvelope,
-  FaTelegram,
-} from "react-icons/fa";
-
-const contactMethods = [
-  {
-    href: "https://www.facebook.com/Lawliet.1.12/",
-    icon: FaFacebookF,
-    label: "Facebook",
-  },
-  {
-    href: "https://wa.me/+6282216556871",
-    icon: FaWhatsapp,
-    label: "WhatsApp",
-  },
-  {
-    href: "mailto:sukmab121@gmail.com",
-    icon: FaEnvelope,
-    label: "Email",
-  },
-  {
-    href: "https://t.me/renkyrielight",
-    icon: FaTelegram,
-    label: "Telegram",
-  },
-];
+import { contactMethods } from "@/lib/contact";
 
 export default function Contact() {
   return (
