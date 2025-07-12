@@ -5,8 +5,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
 import { Button } from "./ui/button";
+import { motion } from "framer-motion";
 
-//Typing Text Effect
+// Typing Text
 const typingTexts = [
   "Web Developer",
   "Software Engineer",
@@ -57,18 +58,9 @@ export default function Hero() {
       href: "https://www.linkedin.com/in/bayu-sukma-140004245",
       icon: FaLinkedin,
     },
-    {
-      href: "https://github.com/Codenames-Ren",
-      icon: FaGithub,
-    },
-    {
-      href: "https://www.facebook.com/Lawliet.1.12/",
-      icon: FaFacebook,
-    },
-    {
-      href: "https://www.instagram.com/noire_92/",
-      icon: FaInstagram,
-    },
+    { href: "https://github.com/Codenames-Ren", icon: FaGithub },
+    { href: "https://www.facebook.com/Lawliet.1.12/", icon: FaFacebook },
+    { href: "https://www.instagram.com/noire_92/", icon: FaInstagram },
   ];
 
   return (
@@ -79,15 +71,34 @@ export default function Hero() {
       <div className="container mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
         {/* Content */}
         <div className="text-center lg:text-left space-y-6">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+          >
             Hello! It's <span className="text-red-600">Bayu</span>
-          </h1>
-          <div className="text-2xl md:text-3xl lg:text-4xl font-bold">
+          </motion.h1>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-2xl md:text-3xl lg:text-4xl font-bold"
+          >
             I'm a <TypingAnimation />
-          </div>
+          </motion.div>
 
           {/* Profile Picture - Mobile */}
-          <div className="flex justify-center lg:hidden">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex justify-center lg:hidden"
+          >
             <div className="relative group transition-transform duration-300 ease-in-out hover:scale-105">
               <Image
                 src="/image/me2.jpg"
@@ -98,16 +109,28 @@ export default function Hero() {
               />
               <div className="absolute inset-0 rounded-full bg-red-600/10 animate-pulse"></div>
             </div>
-          </div>
+          </motion.div>
 
-          <p className="text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed">
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="text-base md:text-lg text-gray-300 max-w-2xl leading-relaxed"
+          >
             Hello! My name is Bayu Sukma, I'm a Junior Web Developer who loves
             creating beautiful and responsive websites. I enjoy exploring new
             technologies and frameworks.
-          </p>
+          </motion.p>
 
-          {/* Social Icon */}
-          <div className="flex justify-center lg:justify-start space-x-4 py-4">
+          {/* Social Icons */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="flex justify-center lg:justify-start space-x-4 py-4"
+          >
             {socialLinks.map(({ href, icon: Icon }, i) => (
               <Link
                 key={i}
@@ -118,9 +141,15 @@ export default function Hero() {
                 <Icon className="text-xl" />
               </Link>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="mt-4">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true, amount: 0.3 }}
+            className="mt-4"
+          >
             <Button
               asChild
               className="bg-transparent border-2 border-red-600 text-red-600 px-8 py-3 rounded-full hover:bg-red-600 hover:text-black hover:scale-105 transition duration-300 shadow-lg"
@@ -129,11 +158,17 @@ export default function Hero() {
                 Hire Me
               </Link>
             </Button>
-          </div>
+          </motion.div>
         </div>
 
-        {/* Profile Picture - Desktop */}
-        <div className="hidden lg:flex justify-center">
+        {/* Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className="hidden lg:flex justify-center"
+        >
           <div className="relative group transition-transform duration-300 ease-in-out hover:scale-105">
             <Image
               src="/image/me2.jpg"
@@ -144,7 +179,7 @@ export default function Hero() {
             />
             <div className="absolute inset-0 rounded-full bg-red-600/10 animate-pulse"></div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
