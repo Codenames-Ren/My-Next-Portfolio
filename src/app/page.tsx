@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Project";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("home");
@@ -45,6 +46,7 @@ export default function Home() {
       <TechStack />
       <Projects />
       <Contact />
+      <Footer />
     </>
   );
 }
