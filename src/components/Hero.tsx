@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
 import { Button } from "./ui/button";
-import { time } from "console";
-import { Icon } from "lucide-react";
 
 //Typing Text Effect
 const typingTexts = [
